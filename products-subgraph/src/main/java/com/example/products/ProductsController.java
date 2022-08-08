@@ -50,13 +50,7 @@ public class ProductsController {
   }
 
   @SchemaMapping(typeName="Product", field="manufacturer")
-  public Company manufacturer(Product show) {
-    var product = PRODUCTS.get(show.id());
-
-    if (product != null) {
-      return new Company(product.manufacturerId());
-    } else {
-      return null;
-    }
+  public Company manufacturer(Product product) {
+    return new Company(product.manufacturerId());
   }
 }

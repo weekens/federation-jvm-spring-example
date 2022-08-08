@@ -1,8 +1,10 @@
 package com.example.reviews;
 
 import com.example.reviews.model.Review;
+import com.example.reviews.model.User;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -27,5 +29,10 @@ public class ReviewsController {
   @QueryMapping
   public List<Review> getReviewByIds(@Argument List<String> ids) {
     return ids.stream().map(REVIEWS::get).collect(Collectors.toList());
+  }
+
+  @SchemaMapping(typeName="Review", field="author")
+  public User author(Review review) {
+    return new User(review.author());
   }
 }
