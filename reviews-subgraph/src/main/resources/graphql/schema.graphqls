@@ -1,7 +1,12 @@
+type User @key(fields: "id") @extends {
+    id: ID! @external
+}
+
 type Review @key(fields: "id") {
     id: ID!,
     text: String
     starRating: Int!
+    author: User
 }
 
 type Query {
