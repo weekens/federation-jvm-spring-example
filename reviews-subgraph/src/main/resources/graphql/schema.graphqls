@@ -3,7 +3,7 @@ type User @key(fields: "id") @extends {
 }
 
 type Review @key(fields: "id") {
-    id: ID!,
+    id: ID!
     text: String
     starRating: Int!
     author: User
