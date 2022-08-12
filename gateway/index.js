@@ -14,7 +14,7 @@ const gateway = new ApolloGateway({
       subgraphs: [
           { name: 'products', url: 'http://localhost:8082/graphql' },
           { name: 'reviews', url: 'http://localhost:8083/graphql' },
-          { name: 'users', url: 'http://localhost:8080/graphql' },
+          { name: 'users', url: 'https://api.development.profile.arrival.co/graphql' },
       ],
       introspectionHeaders: {
         'X-Arrival-Identity': imsToken
