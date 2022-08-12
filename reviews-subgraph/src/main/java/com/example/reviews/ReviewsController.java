@@ -33,6 +33,12 @@ public class ReviewsController {
 
   @SchemaMapping(typeName="Review", field="author")
   public User author(Review review) {
-    return new User(review.author());
+    var author = review.author();
+
+    if (author != null) {
+      return new User(author);
+    } else {
+      return null;
+    }
   }
 }
